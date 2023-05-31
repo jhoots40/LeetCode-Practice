@@ -2,9 +2,12 @@ class Solution {
     public int maximumDetonation(int[][] bombs) {
         int exploded = 0;
         
+        HashMap<Integer, Integer> map = new HashMap<>();
+        
         for(int i = 0; i < bombs.length; i++)
         {
-            HashMap<Integer, Integer> map = new HashMap<>();
+            if(map.containsKey(i)) continue;
+            map.clear();
             map.put(i, 0);
             dfs(i, bombs, map);
             exploded = Math.max(exploded, map.size());
@@ -23,7 +26,6 @@ class Solution {
             double distance = Math.sqrt(Math.pow(x_i - x, 2) + Math.pow(y_i - y, 2));
             if(distance <= r) 
             {
-                //if(exploded.containsKey(i)) continue;
                 exploded.put(i, 0);
                 dfs(i, bombs, exploded);
             }
