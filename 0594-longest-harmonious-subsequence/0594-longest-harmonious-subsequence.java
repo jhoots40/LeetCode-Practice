@@ -5,7 +5,7 @@ class Solution {
         int max_length = 0;
         
         for(int i = 0; i < nums.length; i++) {
-            if(max_length >= nums.length - i) break;
+            //if(max_length >= nums.length - i) break;
             boolean valid = false;
             int bottom_length = 1;
             int top_length = 1;
