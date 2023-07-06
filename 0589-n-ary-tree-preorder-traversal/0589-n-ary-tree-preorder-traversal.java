@@ -19,13 +19,13 @@ class Node {
 
 class Solution {
     public List<Integer> preorder(Node root) {
+        if(root == null) return new ArrayList<>();
         List<Integer> result = new ArrayList<>();
         traverse(root, result);
         return result;
     }
     
     public void traverse(Node current, List<Integer> list) {
-        if(current == null) return;
         
         list.add(current.val);
         for(int i = 0; i < current.children.size(); i++) {
